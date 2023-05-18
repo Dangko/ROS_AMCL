@@ -47,9 +47,26 @@ roslaunch amcl amcl_omni.launch
 在 `src/navigation/amcl/rosbag` 目录下运行数据集：
 
 ```bash
-rosbag play 2023-05-17-20-32-40.bag
+rosbag play 2023-05-18-16-57-52.bag /tf_revise:=/tf
 ```
 
 此时可以看到定位结果：
 
-<img src="result/3.png" alt="2" style="zoom:67%;" />
+<img src="result/4.png" alt="2" style="zoom:67%;" />
+
+发布全局重定位的指令，强制机器人重新进行全局定位：
+
+<img src="result/5.png" alt="2" style="zoom:70%;" />
+
+
+
+此时程序首先在地图中进行均匀地随机采样，椭圆的大小表示了此时定位的不确定性很大，但随着不断接受雷达的观测数据，粒子集又重新迅速收敛，证明了 $AMCL$ 算法可处理全局定位不确定性的问题：
+
+<img src="result/6.png" alt="2" style="zoom:70%;" />
+
+
+
+<img src="result/7.png" alt="2" style="zoom:70%;" />
+
+
+
