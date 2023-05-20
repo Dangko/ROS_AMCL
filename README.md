@@ -40,7 +40,13 @@ source devel/setup.zsh
 roslaunch amcl amcl_omni.launch
 ```
 
-如果地图没加载成功，可能是因为 `use_simtime` 被设置成了 `true`，自己修改成 `false` 就行，此时可以在 rviz 中看到地图：
+如果地图没加载成功，可能是因为 `use_simtime` 被设置成了 `true`，在终端执行以下命令修改成 `false` 就行：
+
+```bash
+rosparam set /use_sim_time false
+```
+
+此时在执行 launch 就可以在 rviz 中看到地图：
 
 <img src="result/2.png" alt="2" style="zoom:67%;" />
 
@@ -54,7 +60,7 @@ rosbag play 2023-05-18-16-57-52.bag /tf_revise:=/tf
 
 <img src="result/4.png" alt="2" style="zoom:67%;" />
 
-发布全局重定位的指令，强制机器人重新进行全局定位：
+在 rqt 中找到 `gloabl_localization` 的 service，call 一下就可以发布全局重定位的指令，强制机器人重新进行全局定位：
 
 <img src="result/5.png" alt="2" style="zoom:70%;" />
 

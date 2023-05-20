@@ -41,7 +41,7 @@
 <node name ="map_server" pkg="map_server" type="map_server" output="screen" args="$(find amcl)/map/mymap1_ros.yaml"/>
 
 
-  <node pkg="rviz" type="rviz" name="rviz" args="$(find amcl)/cfg/rviz.rviz" required="true" />
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find amcl)/cfg/rviz.rviz" required="true" />
 
  <node pkg="amcl" type="amcl" name="amcl" output="screen">
 

@@ -306,7 +306,7 @@ boost::shared_ptr<AmclNode> amcl_node_ptr;
 void sigintHandler(int sig)
 {
   // Save latest pose as we're shutting down.
-  amcl_node_ptr->savePoseToServer();
+  //amcl_node_ptr->savePoseToServer();
   ros::shutdown();
 }
 
